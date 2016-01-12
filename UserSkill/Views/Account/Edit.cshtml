@@ -1,0 +1,30 @@
+﻿@model UserSkill.Models.EditModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit User</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        @Html.ValidationSummary(true, "")
+        <div>
+            <p>Email: @Html.EditorFor(model => model.Email)</p>
+        </div>
+
+        <div>
+            <p>Login (Name): @Html.EditorFor(model => model.UserName)</p>
+            <p> @Html.ValidationMessageFor(model => model.UserName) </p>
+        </div>
+
+        <div>
+            <div>
+                <input type="submit" value="Save Changes" class="btn btn-success" onclick="return confirm('This action assumes, that you have to relogin. Continue?');"/>
+            </div>
+        </div>
+    </div>
+}

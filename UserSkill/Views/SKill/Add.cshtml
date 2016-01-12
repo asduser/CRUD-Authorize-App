@@ -1,0 +1,41 @@
+﻿@model UserSkill.Models.Skill
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="col-md-12" style="background:#008000;color:#eee;font-style: italic;padding:10px 0 10px 20px;"> - Add Skill -</h2>
+
+@using (Html.BeginForm())
+{
+    <div id="skillsBlock">
+        <div class="skillItem" style='margin:0 0 10px 0;'>
+            <div>
+                <label>Item # 0</label>
+                <div>
+                    <input placeholder="Skill name..." type="text" name="skills[0].Name" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <p><a class="addLink">Add new element</a></p>
+    <a href="/Skill/Index" class="btn btn-default">Cancel</a>
+    <input type="submit" value="Add" class="btn btn-success" />
+}
+
+@section Scripts {
+    <script>
+        $(function () {
+            var i = 0;
+            $('.addLink').click(function() {
+                i++;
+                var html2Add = "<div class='skillItem' style='margin:0 0 10px 0;'>" +
+                    "<div><label>Item # " + i + "</label><div>" +
+                    "<input placeholder='Skill name...' type='text' name='skills[" + i + "].Name' />" +
+                    "</div></div></div>";
+                $('#skillsBlock').append(html2Add);
+            });
+        })
+    </script>
+}

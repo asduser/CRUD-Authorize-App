@@ -1,0 +1,31 @@
+﻿@using UserSkill.Models
+@model City
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="col-md-12" style="background: #428BCA; color: #fff; font-style: italic; padding: 10px 0 10px 20px;"> - Details for @Model.Name -</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td> User </td>
+            <td> Age </td>
+            <td> Gender </td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in Model.Users)
+        {
+            <tr>
+                <td> <a href="/User/Details/@u.Id"> @u.Name </a> </td>
+                <td> @u.Age </td>
+                <td> @u.Gender </td>
+            </tr>   
+        }
+    </tbody>
+</table>
+
+<p> <a href="/City/Index" class="btn btn-default btn-lg">Go to cities</a> </p>

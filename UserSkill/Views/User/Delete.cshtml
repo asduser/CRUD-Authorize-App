@@ -1,0 +1,41 @@
+﻿@model UserSkill.Models.User
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="col-md-12" style="background:brown;color:#eee;font-style: italic;padding:10px 0 10px 20px;"> - Delete User -</h2>
+
+<dl>
+    <dt>Name</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+    <dt>Age</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Age)
+    </dd>
+    <dt>Gender</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Gender)
+    </dd>
+    <dt>Skills</dt>
+    <dd>
+        <ul>
+            @foreach (var s in Model.Skills)
+            {
+                <li> @s.Name </li>
+            }
+        </ul>
+    </dd>
+</dl>
+
+<p style="color:#990000;"> <b>Notice:</b> this action intends completely removing item from DB. Think twice!</p>
+
+@using (Html.BeginForm())
+{
+    <a href="/User/Index" class="btn btn-default">Cancel</a>
+    <input type="submit" value="Delete" class="btn btn-danger" />
+}
+

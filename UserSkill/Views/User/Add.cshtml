@@ -1,0 +1,43 @@
+﻿@model UserSkill.Models.User
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="col-md-12" style="background:#008000;color:#eee;font-style: italic;padding:10px 0 10px 20px;"> - Add User -</h2>
+
+@using (Html.BeginForm("Add", "User", FormMethod.Post))
+{
+    <fieldset>
+        <legend>Information</legend>
+
+        <p>
+            Name: <br />
+            @Html.EditorFor(model => model.Name)
+        </p>
+
+        <p>
+            Age: <br />
+            @Html.EditorFor(model => model.Age)
+        </p>
+
+        <p>
+            Gender:  <br />
+            @Html.DropDownListFor(model => model.Gender, ViewBag.Genders as SelectList)
+        </p>
+        <p>
+            City: <br />
+            @Html.DropDownListFor(model => model.CityId, ViewBag.Cities as SelectList)
+        </p>
+
+        <p>
+            <a href="/User/Index" class="btn btn-default">Cancel</a>
+            <input type="submit" value="Add" class="btn btn-success" />
+        </p>
+    </fieldset>
+}
+
+@Scripts.Render("~/scripts/jquery-1.10.2.min.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
+

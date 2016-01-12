@@ -1,0 +1,49 @@
+﻿@using UserSkill.Models
+@model User
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="col-md-12" style="background:#cbcbcb;color:#333;font-style: italic;padding:10px 0 10px 20px;"> - Edit User -</h2>
+
+
+@using (Html.BeginForm())
+{
+
+    <fieldset>
+        
+        @Html.HiddenFor(m => m.Id)
+        <p>
+            @Html.LabelFor(m => m.Name, "Name") <br />
+            @Html.EditorFor(m => m.Name)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Age, "Age") <br />
+            @Html.EditorFor(m => m.Age)
+
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Gender, "Gender") <br />
+            @Html.DropDownListFor(model => model.Gender, ViewBag.Genders as SelectList)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.City, "City") <br />
+            @Html.DropDownListFor(model => model.CityId, ViewBag.Cities as SelectList)
+        </p>
+
+        <div class="editor-label"><b>Skills</b></div>
+        @foreach (var s in ViewBag.Skills)
+        {
+            <input type="checkbox" name="selectedSkills" value="@s.Id"
+                   @(Model.Skills.Contains(s) ? "checked=\"checked\"" : "") />@s.Name <br />
+        }<br/>
+
+        <p>
+            <a href="/User/Index" class="btn btn-default btn-lg">Go to users</a>
+            <input type="submit" class="btn btn-lg btn-success" value="Save and continue">
+        </p>
+    </fieldset>
+}
+

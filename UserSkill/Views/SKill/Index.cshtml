@@ -1,0 +1,35 @@
+﻿@model IEnumerable<UserSkill.Models.Skill>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="col-md-12" style="background: #428BCA; color: #fff; font-style: italic; padding: 10px 0 10px 20px;"> - List of Skills -</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td> Name </td>
+            @if (Request.IsAuthenticated)
+            {
+                <td> Action </td>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td> @u.Name </td>
+                @if (Request.IsAuthenticated)
+                {
+                    <td> <a href="/Skill/Delete/@u.Id" class="btn btn-danger btn-xs">Delete</a> </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p><a href="/Skill/Add" class="btn btn-success col-md-12"><i class="glyphicon-plus"></i> Add new</a> </p>
+

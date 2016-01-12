@@ -1,0 +1,18 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Hello, " + User.Identity.GetUserName() + "!", "Edit", "Account")</li>
+        <li> <a href="#">|</a> </li>
+        <li>@Html.ActionLink("Quit", "Logout", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", onclick = "return confirm('Are you sure want to logout?');" })</li>
+        <li> <a href="#">|</a> </li>
+        <li>@Html.ActionLink("Add New +", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+    </ul>
+}
+else
+{
+    <span></span>
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>   
+}

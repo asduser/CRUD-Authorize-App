@@ -1,0 +1,19 @@
+﻿@model UserSkill.Models.City
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="col-md-12" style="background:#008000;color:#eee;font-style: italic;padding:10px 0 10px 20px;"> - Add City -</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name, "City Name")
+    <br />
+    @Html.EditorFor(model => model.Name)
+    <br /><br />
+    
+    <a href="/City/Index" class="btn btn-default">Cancel</a>
+    <input type="submit" value="Add" class="btn btn-success" />
+}

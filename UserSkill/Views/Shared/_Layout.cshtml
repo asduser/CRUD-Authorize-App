@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/Home/Index" class="navbar-brand"> User Skill </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Users", "Index", "User")</li>
+                    <li>@Html.ActionLink("Skills", "Index", "Skill")</li>
+                    <li>@Html.ActionLink("Cities", "Index", "City")</li>
+                </ul>
+                @Html.Partial("LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @if (Request.FilePath != "/Account/Login" && Request.FilePath != "/Account/Register")
+        {
+            using (Html.BeginForm("Search", "Home", FormMethod.Get))
+             {
+                 <input name="searchValue" type="search" class="col-md-12" placeholder="Enter user name..." style="margin: 15px 0 0 0; border: 1px solid #ccc; padding: 4px 4px 5px 4px;" />
+                 <button type="submit" class="btn btn-primary btn-sm" style="background: #555; border: none;">Find <i class="glyphicon glyphicon-search" style="margin: 0 0 0 5px;"></i></button>
+             }
+        }
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,7 @@
+bin/
+obj/
+UserSkill/*.dll
+*.pdb
+*.suo
+UserSkill/App_Error/*
+*.sdf

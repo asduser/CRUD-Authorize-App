@@ -1,0 +1,51 @@
+﻿@model UserSkill.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2> Register a New Admin </h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        <hr />
+        @Html.ValidationSummary(false)
+
+        <div>
+            Login:
+            <div>
+                @Html.EditorFor(model => model.Login)
+            </div>
+        </div>
+        
+        <div>
+            Email:
+            <div>
+                @Html.EditorFor(model => model.Email)
+            </div>
+        </div>
+
+        <div>
+            Password:
+            <div>
+                @Html.EditorFor(model => model.Password)
+            </div>
+        </div>
+
+        <div>
+            Re-password:
+            <div>
+                @Html.EditorFor(model => model.PasswordConfirm)
+            </div>
+        </div><br/>
+
+        <div>
+            <div>
+                <input type="submit" value="Register" />
+            </div>
+        </div>
+    </div>
+}

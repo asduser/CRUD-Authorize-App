@@ -1,0 +1,41 @@
+﻿@model IEnumerable<UserSkill.Models.User>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="col-md-12" style="background:#cbcbcb;color:#333;font-style: italic;padding:10px 0 10px 20px;"> - Search result -</h2>
+
+@{
+    if (ViewBag.IsFound || !Model.Any())
+    {
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <td> Name </td>
+                    <td> Age </td>
+                    <td> City </td>
+                    <td> Action </td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var u in Model)
+                {
+                    <tr>
+                        <td> <a href="/User/Details/@u.Id">@u.Name</a> </td>
+                        <td> @u.Age </td>
+                        <td> <a href="/City/Details/@u.CityId">@u.City.Name</a> </td>
+                        <td>
+                            <a href="/User/Edit/@u.Id" class="btn btn-xs btn-default"> Edit </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p> There are no results to your request. Try change a request and press "Find" again. </p>
+    }
+}

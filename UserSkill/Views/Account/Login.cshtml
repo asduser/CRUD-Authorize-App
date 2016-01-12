@@ -1,0 +1,27 @@
+﻿@model UserSkill.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login Form</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        @Html.ValidationSummary()
+        <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+        <p>
+            <label>Name:</label><br />
+            @Html.EditorFor(x => x.Email)
+        </p>
+        <p>
+            <label>Password:</label><br />
+            @Html.EditorFor(x => x.Password)
+        </p>
+        <p><button type="submit">Login</button></p>
+    </div>
+}
