@@ -1,7 +1,7 @@
 # CRUD-Authorize-App
 Simple application using Asp.Net MVC, which contains CRUD functionality.
 
-### Description:
+### About
 
 My first project on ASP.NET MVC to provide CRUD functionality into the HTML-tables. Also there are implemented a simple system of user authentication. Common features: <br/>
 
@@ -12,6 +12,6 @@ My first project on ASP.NET MVC to provide CRUD functionality into the HTML-tabl
 <li> Entity Framework as the main database, relationships "one-to-many" & "many-to-many". </li>
 </ol>  
 
-### Small image:
+### Screenshot:
 
 <img src="previews/asp_net_proj.png" alt="asp net mvc training project" />
