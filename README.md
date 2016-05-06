@@ -3,7 +3,7 @@ Simple application using Asp.Net MVC, which contains CRUD functionality.
 
 ### About
 
-My first project on ASP.NET MVC to provide CRUD functionality into the HTML-tables. Also there are implemented a simple system of user authentication. Common features: <br/>
+Project on ASP.NET MVC to provide CRUD functionality into the HTML-tables. Also there are implemented a simple system of user authentication. Common features: <br/>
 
 <ol>
 <li> Ability to create, read, update and delete data using ASP.NET MVC and Javascript. </li>
